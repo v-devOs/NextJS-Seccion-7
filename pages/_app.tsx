@@ -1,16 +1,13 @@
 import type { AppProps } from 'next/app'
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import { ligthTheme } from '</themes>'
 
-const basicTheme = createTheme({
-  palette: {
-    mode: 'dark'
-  }
-});
+
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={ basicTheme }>
-      <CssBaseline/>
+    <ThemeProvider theme={ ligthTheme }>
+      <CssBaseline />
       <Component {...pageProps} />
     </ThemeProvider>
   )
