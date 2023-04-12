@@ -28,7 +28,7 @@ export const Sidebar = () => {
             ))
           }
         </List>
-        
+
         <Divider/>
       </Box>
       
