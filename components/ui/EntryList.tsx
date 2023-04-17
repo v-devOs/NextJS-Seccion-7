@@ -27,7 +27,7 @@ export const EntryList: FC<Props> = ({ status }) => {
 
     console.log(id);
     
-    const entry = entries.find( e => e._id = id)!;
+    const entry = entries.find( e => e._id === id)!;
     entry.status = status;
     updateEntry( entry )
     endDragging()
