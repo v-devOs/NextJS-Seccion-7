@@ -14,9 +14,9 @@ export default async function (req: NextApiRequest, res: NextApiResponse<Data>) 
 
   await db.connect()
   
-  // await EntryDB.deleteMany({});
+  await EntryDB.deleteMany({});
   
-  // await EntryDB.insertMany( seedData.entries );
+  await EntryDB.insertMany( seedData.entries );
   
   const entries = await EntryDB.find({})
   
