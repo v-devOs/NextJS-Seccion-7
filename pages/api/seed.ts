@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { db, seedData } from '</database>'
-import { EntryDB } from '</models>'
+import { EntryDB, IEntry } from '</models>'
 
-type Data = {
-  message: string
-}
+type Data = 
+  | { message: string }
+  | IEntry[]
 
 export default async function (req: NextApiRequest, res: NextApiResponse<Data>) {
 
@@ -14,11 +14,13 @@ export default async function (req: NextApiRequest, res: NextApiResponse<Data>) 
 
   await db.connect()
   
-  await EntryDB.deleteMany({});
+  // await EntryDB.deleteMany({});
   
-  await EntryDB.insertMany( seedData.entries );
+  // await EntryDB.insertMany( seedData.entries );
+  
+  const entries = await EntryDB.find({})
   
   await db.disconnect()
 
-  res.status(200).json({ message: 'Proceso realizado correctamente' })
+  res.status(200).json(entries)
 }
