@@ -1,1 +1,1 @@
-export { default as EntryDB } from './Entry'
+export { default as EntryDB, type IEntry } from './Entry'
