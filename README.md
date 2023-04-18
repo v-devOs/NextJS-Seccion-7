@@ -6,8 +6,9 @@ docker-compose up -d
 
 * El -d, significa __detached__
 
-*El url local es:
+* El url local es:
 
 ```
 mongodb://localhost:27017/
 ```
+
