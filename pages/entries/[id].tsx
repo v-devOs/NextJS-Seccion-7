@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useMemo, useState } from "react";
 import { capitalize, Button, Card, CardActions, CardContent, CardHeader, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, IconButton } from "@mui/material";
 
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
@@ -28,6 +28,8 @@ const EntryPage = () => {
     
   }
 
+  const isNotValid = useMemo(() => inputValue.length <= 0 && touched, [inputValue, touched])
+
   return (
     <Layout title=".....">
       <Grid 
@@ -51,6 +53,9 @@ const EntryPage = () => {
                 label='Nueva Entrada'
                 value={ inputValue }
                 onChange={ onInputValueChange }
+                onBlur={ () => settouched( true )}
+                helperText={ isNotValid && 'Ingrese un valor' }
+                error={ isNotValid }
               />
 
               <FormControl>
@@ -80,6 +85,7 @@ const EntryPage = () => {
                 variant="contained"
                 fullWidth
                 onClick={ onSave }
+                disabled = { inputValue.length <= 0 }
               >
                 Save
               </Button>
