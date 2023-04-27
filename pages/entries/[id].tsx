@@ -47,6 +47,12 @@ const EntryPage: FC<Props> = ({ entry }) => {
     updateEntry( updatedEntry, true );
   }
 
+  const onDelete = () => {
+    
+    
+    // dbEntries.deleteEntryById(entry._id)
+  }
+
   const isNotValid = useMemo(() => inputValue.length <= 0 && touched, [inputValue, touched])
 
   return (
@@ -113,7 +119,9 @@ const EntryPage: FC<Props> = ({ entry }) => {
         </Grid>
       </Grid>
 
-      <IconButton sx={{
+      <IconButton 
+        onClick={onDelete}
+        sx={{
         position: 'fixed',
         bottom: 30,
         right: 30,

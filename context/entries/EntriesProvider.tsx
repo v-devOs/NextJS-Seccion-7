@@ -35,7 +35,6 @@ export const EntriesProvider: FC<Props> = ({ children }) => {
 
     try {
       const { data } = await entriesApi.put<Entry>(`/entries/${ _id }`, { description, status })
-
       dispatch({type: '[Entry] - Entry-Updated', payload: data})
 
       if( showSnackBar ){

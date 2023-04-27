@@ -12,3 +12,16 @@ export const getEntryByID = async( id: string ): Promise<IEntry | null> => {
 
   return JSON.parse(JSON.stringify(entry));
 }
+
+export const deleteEntryById = async( id: string ) => {
+
+  if( !isValidObjectId(id) ) return null;
+
+  await db.connect();
+
+  await EntryDB.deleteOne({ _id: id })
+
+  await db.disconnect();
+
+  return null;
+}
