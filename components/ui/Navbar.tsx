@@ -18,7 +18,7 @@ export const Navbar = () => {
           <MenuOutlinedIcon/>
         </IconButton>
 
-        <Link href={"/"}>
+        <Link href={"/"} underline="none" color="white">
           <Typography variant="h6">OpenJira</Typography>
         </Link>
       </Toolbar>
