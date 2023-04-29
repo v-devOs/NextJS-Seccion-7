@@ -11,6 +11,7 @@ import { Entry, EntryStatus } from "</interfaces>";
 
 import { dbEntries } from "</database>";
 import { EntriesContext } from '</context/entries>';
+import { dateFuntions } from '</utils>';
 
 const validStatus: EntryStatus[] = ['pending', 'in-progress', 'finished'];
 
@@ -66,7 +67,7 @@ const EntryPage: FC<Props> = ({ entry }) => {
           <Card>
             <CardHeader
               title={`Entrada:`}
-              subheader={`Creada hace: ${entry.createdAt} minutos `}
+              subheader={`Creada: ${dateFuntions.getFormatDistanceToNow(entry.createdAt)}`}
             />
             <CardContent>
               <TextField 
